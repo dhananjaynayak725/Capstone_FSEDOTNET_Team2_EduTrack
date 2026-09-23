@@ -1,0 +1,19 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+TestResults/
+coverage/
+
+# Node
+node_modules/
+dist/
+.env
+.env.local
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/

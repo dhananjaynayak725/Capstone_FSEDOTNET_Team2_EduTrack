@@ -1,0 +1,19 @@
+# Optional: SQL Server for macOS / Linux / machines without a local SQL Server.
+#   docker compose up -d
+# Then run the API with:
+#   ConnectionStrings__DefaultConnection="Server=localhost,1433;Database=EduTrackDb;User Id=sa;Password=EduTrack_Passw0rd!;TrustServerCertificate=True"
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    platform: linux/amd64
+    container_name: edutrack-sql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "EduTrack_Passw0rd!"
+    ports:
+      - "1433:1433"
+    volumes:
+      - edutrack-sql-data:/var/opt/mssql
+
+volumes:
+  edutrack-sql-data:
